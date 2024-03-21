@@ -10,23 +10,27 @@ return new class extends Migration {
      */
     public function up(): void {
         
-        Schema::create('users', function (Blueprint $table) {       // cria a tabela 'users' responsável por armazenar os usuarios
+        Schema::create('users', function (Blueprint $table) {
             $table-> id();
             $table-> string('email');
             $table-> string('password');
+            $table-> timestamps();
         });
         
-        Schema::create('pages', function (Blueprint $table) {       // cria a tabela das páginas
+        Schema::create('pages', function (Blueprint $table) {
             $table-> id();
-            $table-> string('id_user');
+            $table-> integer('id_user');
             $table-> string('slug');
-            $table-> string('op_font_color')-> default('black');
+            $table-> string('op_font_color')-> default('black');     // cor da fonte da página
             $table-> string('op_bg_type')-> default('color');
             $table-> string('op_bg_value')-> default('white');
-            $table-> string('op_profile_image')-> default('defaut.png');
+            $table-> string('op_profile_image')-> default('default.png');
             $table-> string('op_title')-> nullable();
             $table-> string('op_description')-> nullable();
             $table-> string('op_fb_pixel')-> nullable();
+            // $table-> timestamps();
+            
+            // $table-> foreign('id_user')-> references('id')-> on('users')-> onDelete('cascade');
         });
         
         Schema::create('links', function (Blueprint $table) {
@@ -55,6 +59,7 @@ return new class extends Migration {
             $table-> integer('total')-> default(0);
         });
     }
+    
     /**
      * Reverse the migrations.
      */
