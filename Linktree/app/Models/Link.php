@@ -7,6 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model {
 
-    protected $fillable = ['id_link', 'click_date'];
     public $timestamps = false;
 }
