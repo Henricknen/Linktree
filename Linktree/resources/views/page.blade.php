@@ -7,6 +7,41 @@
     <title>{{$title}}</title>
 
     <style type = "text/css">
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px;
+        font-family: Helvetica, Arial;
+        color: {{$font_color}};
+        background: linear-gradient(90deg, #FFFFF, #000000);
+    }
+
+    .profileImage img {
+        width: auto;
+        height: 100px;
+    }
+
+    .profileTitle {
+        font-size: 17px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .profileDescription {
+        font-size: 15px;
+        margin-top: 5px;
+    }
+
+    .linkArea {
+        width: 100%;
+        margin: 50px 0;
+    }
+
+    .banner a {
+        color: {{ $font_color }};
+    }
 
     </style>
 </head>
