@@ -6,6 +6,7 @@
     <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
     <title>{{$title}}</title>
 
+    {{-- css da página --}}
     <style type = "text/css">
     body {
         display: flex;
@@ -15,7 +16,7 @@
         padding: 20px;
         font-family: Helvetica, Arial;
         color: {{$font_color}};
-        background: linear-gradient(90deg, #FFFFF, #000000);
+        background: linear-gradient(90deg, #FFFFFF, #000000);
     }
 
     .profileImage img {
@@ -55,7 +56,12 @@
     <div class = "profileDescription">{{ $description }}</div>
 
     <div class = "linkArea">
-
+        @foreach ($links as $link)
+            <a
+                href = "{{$link-> href}}"
+            >{{ $link-> title }}</a>
+            
+        @endforeach
     </div>
 
     <div class = "banner">
