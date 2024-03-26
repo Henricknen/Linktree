@@ -16,7 +16,8 @@
         padding: 20px;
         font-family: Helvetica, Arial;
         color: {{$font_color}};
-        background: linear-gradient(90deg, #FFFFFF, #000000);
+        background: {{ $bg }};
+        /* background: linear-gradient(90deg, #FFFFFF, #000000); */
     }
 
     .profileImage img {
@@ -86,7 +87,7 @@
     </div>
 
     <div class = "banner">
-        Feito com ♥ por <a href = "">Luis Henrique S F</a>
+        Feito com ♥ por <a href = "https://github.com/Henricknen/Linktree" target = "_black">Luis Henrique S F</a>
     </div>
 
     @if(!empty($fb_pixel))

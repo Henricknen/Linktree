@@ -31,15 +31,15 @@ class PageController extends Controller {
                 -> orderBy('order')
                 -> get();
 
-            $view = View::fistOrNew(        // registra a visualização da página
+            $view = View::firstOrNew(        // registra a visualização da página
                 ['id_page'=> $page-> id, 'view_date'=> date('Y-m-d')]
             );
 
             $view-> total++;
             $view-> save();
 
-            return view('page', [
-                'font_color'=> $page-> op_font_color,       // enviando informações para a 'page'
+            return view('page', [       // enviando informações para a 'page' 
+                'font_color'=> $page-> op_font_color,
                 'profile_image'=> url('/media/uploads'). '/'. $page-> op_profile_image,
                 'title'=> $page-> op_title,
                 'description'=> $page-> op_description,

@@ -28,7 +28,6 @@ return new class extends Migration
             $table-> string('op_title')-> nullable;
             $table-> string('op_description')-> nullable;
             $table-> string('op_fb_pixel')-> nullable;
-            // $table->timestamps();
         });
         
         Schema::create('links', function (Blueprint $table) {       // tabela 'links'
@@ -41,7 +40,6 @@ return new class extends Migration
             $table-> string('op_bg_color')-> nullable();
             $table-> string('op_text_color')-> nullable();
             $table-> string('op_border_type')-> nullable();
-            // $table->timestamps();
         });
         
         Schema::create('views', function (Blueprint $table) {       // tabela 'views'
@@ -49,7 +47,7 @@ return new class extends Migration
             $table-> integer('id_page');
             $table-> date('view_date');
             $table-> integer('total')-> default(0);
-            // $table->timestamps();
+            
         });
         
         Schema::create('clicks', function (Blueprint $table) {       // tabela 'clicks'
@@ -57,7 +55,6 @@ return new class extends Migration
             $table-> integer('id_link');
             $table-> date('click_date');
             $table-> integer('total')-> default(0);
-            // $table->timestamps();
         });
     }
     
