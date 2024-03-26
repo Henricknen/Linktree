@@ -21,8 +21,7 @@ class PageController extends Controller {
                     $bg = 'linear-gradient(90deg, ';
                     $bg .= $colors[0]. ',';
                     $bg .= !empty($colors[1]) ? $colors[1] : $colors[0];
-
-                    $bg .= ')';
+                    $bg .= ')';         // fechamento do 'gradient'
                 break;
             }
 

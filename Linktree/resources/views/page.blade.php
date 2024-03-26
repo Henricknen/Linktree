@@ -40,6 +40,24 @@
         margin: 50px 0;
     }
 
+    .linkArea a {
+        display: block;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .linkArea a.linksquare {
+        border-radius: 0px;
+    }
+
+    .linkArea a.linkrounded {
+        border-radius: 50px;
+    }
+
     .banner a {
         color: {{ $font_color }};
     }
@@ -59,7 +77,10 @@
         @foreach ($links as $link)
             <a
                 href = "{{$link-> href}}"
-            >{{ $link-> title }}</a>
+                class = "link{{$link-> op_border_type}}"
+                style = "background-color:{{$link-> op_bg_color}};color:{{$link-> op_text_color}};"
+                target = "_black"
+            >{{ ucfirst($link-> title) }}</a>
             
         @endforeach
     </div>
