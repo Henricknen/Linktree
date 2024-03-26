@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Page;       // puchando o model 'Page'
 use App\Models\Link;
+use App\Models\View;
 
 class PageController extends Controller {
     public function index($slug) {
@@ -25,10 +26,17 @@ class PageController extends Controller {
                 break;
             }
 
-            $links = Link::where('id_page', $page-> id)
+            $links = Link::where('id_page', $page-> id)     // links
                 -> where('status', 1)
                 -> orderBy('order')
                 -> get();
+
+            $view = View::fistOrNew(        // registra a visualização da página
+                ['id_page'=> $page-> id, 'view_date'=> date('Y-m-d')]
+            );
+
+            $view-> total++;
+            $view-> save();
 
             return view('page', [
                 'font_color'=> $page-> op_font_color,       // enviando informações para a 'page'
